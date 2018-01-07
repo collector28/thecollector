@@ -1,0 +1,78 @@
+Movies
+
+    xml = "<item>" \
+          "<title>[COLOR blue]%s[/COLOR]</title>" \
+          "<meta>" \
+          "<content>movie</content>" \
+          "<imdb>%s</imdb>" \
+          "<title>%s</title>" \
+          "<year>%s</year>" \
+          "</meta>" \
+          "<link>" \
+          "<sublink>search</sublink>" \
+          "<sublink>searchsd</sublink>" \
+          "</link>" \
+          "<thumbnail>%s</thumbnail>" \
+          "<fanart>%s</fanart>" \
+          "</item>" % (title, imdb, title, year, thumbnail, fanart)
+    return xml
+
+TV Show
+
+    xml = "<dir>"\
+          "<title>[COLOR blue]%s[/COLOR]</title>"\
+          "<meta>"\
+          "<content>tvshow</content>"\
+          "<imdb>%s</imdb>"\
+          "<tvshowtitle>%s</tvshowtitle>"\
+          "<year>%s</year>"\
+          "</meta>"\
+          "<link>trakt_tv_show(%s, %s, %s, %s, %s)</link>"\
+          "<thumbnail>%s</thumbnail>" \
+          "<fanart>%s</fanart>" \
+          "</dir>" % (title, imdb, title, year, trakt_id, year, title, tmdb,
+                      imdb, thumbnail, fanart)
+    return xml
+
+TV Seasons
+
+    xml = "<dir>"\
+          "<title>[COLOR blue]Season %s[/COLOR]</title>"\
+          "<meta>"\
+          "<imdb>%s</imdb>"\
+          "<content>season</content>"\
+          "<season>%s</season>"\
+          "</meta>"\
+          "<link>trakt_season(%s,%s, %s, %s, %s, %s)</link>"\
+          "<thumbnail>%s</thumbnail>" \
+          "<fanart>%s</fanart>" \
+          "</dir>" % (season, imdb, season, trakt_id, season, year,
+                      tvtitle, tmdb,
+                      imdb, thumbnail, fanart)
+    return xml
+
+TV Episodes
+
+    xml = "<item>"\
+          "<title>[COLOR blue]%s[/COLOR]</title>"\
+          "<meta>"\
+          "<content>episode</content>"\
+          "<imdb>%s</imdb>"\
+          "<tvshowtitle>%s</tvshowtitle>"\
+          "<year>%s</year>"\
+          "<title>%s</title>"\
+          "<premiered>%s</premiered>"\
+          "<season>%s</season>"\
+          "<episode>%s</episode>"\
+          "</meta>"\
+          "<link>"\
+          "<sublink>search</sublink>"\
+          "<sublink>searchsd</sublink>"\
+          "</link>"\
+          "<thumbnail>%s</thumbnail>" \
+          "<fanart>%s</fanart>" % (
+              title, imdb, tvtitle, year, title,
+              premiered, season, episode,
+              thumbnail, fanart)
+    xml += "</item>"
+    return xml
